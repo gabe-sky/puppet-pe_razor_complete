@@ -1,3 +1,10 @@
+# This class adds configuration to the DHCP server so that network-booted
+# machines will be controlled by Razor.  The base setup of DHCP is done in the
+# 'dhcp' subclass.
+#
+# If you want to change the parameters to this class, you should specify them
+# when declaring the main pe_razor_complete class, not here.  That way they'll
+# be set properly for all the dhcp, pxe, and ipv4_nat subclasses.
 
 class pe_razor_complete::pxe (
 ) inherits pe_razor_complete {
@@ -14,7 +21,9 @@ class pe_razor_complete::pxe (
     before => Service['dnsmasq'],
   }
 
-  # New nodes will be told to boot the iPXE (undionly) kernel.
+  # All nodes will be told to boot the iPXE (undionly) kernel.  We download the
+  # specifically Enterprise-supported version from the official Puppet s3
+  # bucket.
   staging::file { 'undionly.kpxe':
    target  => "/var/lib/tftpboot/undionly.kpxe",
    source  => 'https://s3.amazonaws.com/pe-razor-resources/undionly-20140116.kpxe',

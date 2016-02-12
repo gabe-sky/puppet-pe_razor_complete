@@ -1,3 +1,13 @@
+# This class sets up everything for a basic DHCP server.  Applying just this
+# class results in a functional DHCP server that hands out leases on a specified
+# subnet.
+#
+# The parts that manage the iPXE booting that gets a network-booted machine to
+# be controlled by Razor are in the 'pxe' subclass.
+#
+# If you want to change the parameters to this class, you should specify them
+# when declaring the main pe_razor_complete class, not here.  That way they'll
+# be set properly for all the dhcp, pxe, and ipv4_nat subclasses.
 
 class pe_razor_complete::dhcp (
   $dnsmasq_dhcp_start     = $pe_razor_complete::dnsmasq_dhcp_start,
