@@ -1,0 +1,9 @@
+# All network-booting machines are instructed to fetch the iPXE kernel
+dhcp-boot=undionly.kpxe
+
+# The iPXE kernel sets option 175 and then re-requests DHCP configuration
+dhcp-match=IPXEBOOT,175
+
+# When it's iPXE asking, instruct it to grab the bootstrap.ipxe configuration
+dhcp-boot=net:IPXEBOOT,bootstrap.ipxe
+

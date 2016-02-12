@@ -1,0 +1,8 @@
+# Most basic configuration of dnsmasq to provide a range for leases, and to
+# limit it to listening on just one interface.
+
+interface=<%= @dnsmasq_interface %>
+dhcp-range=<%= @dnsmasq_dhcp_start %>,<%= @dnsmasq_dhcp_end %>,<%= @dnsmasq_dhcp_netmask %>,<%= @dnsmasq_dhcp_lease %>
+
+# And also, look for additional configuration in files inside /etc/dnsmasq.d
+conf-dir=/etc/dnsmasq.d
