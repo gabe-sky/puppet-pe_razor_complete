@@ -4,6 +4,12 @@ The purpose of this module is to provide a quick "profile" module that sets up a
 
 It is intended to assist in learning Razor, by making it super-simple to try out a dual-homed Razor server, presumably in a lab with a dedicated VLAN for the DHCP and other provisioning communication.
 
+This module relies on four others.  One is the pe_razor module, which a Puppet Enterprise master already has installed.  The other three are:
+
+  * nanliu-staging
+  * puppetlabs-firewall
+  * puppetlabs-stdlib
+
 ## Basic CentOS 6 Example
 
 With CentOS 6 and a Puppet Enterprise master, you should be able to just do this:
