@@ -1,6 +1,6 @@
 # PE Razor Complete
 
-The purpose of this module is to provide a quick "profile" module that sets up a dual-homed PUPPET ENTERPRISE managed Razor server, including a DHCP service on a secondary (eth1 by default) interface -- and also adds a corresponding tftp service to serve an iPXE kernel.  Network-booting machines will use those services, and be controlled by Razor.
+The purpose of this module is to provide a quick "profile" module that sets up a dual-homed *Puppet Enterprise*-managed Razor server, including a DHCP service on a secondary (eth1 by default) interface -- and also adds a corresponding tftp service to serve an iPXE kernel.  Network-booting machines will use those services, and be controlled by Razor.
 
 This module is intended to assist in learning Razor, by making it super-simple to try out a dual-homed Razor server, presumably in a lab with a dedicated VLAN for the DHCP and other provisioning communication.
 
