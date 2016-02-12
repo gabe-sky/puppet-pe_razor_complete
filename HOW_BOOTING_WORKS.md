@@ -31,7 +31,7 @@ Less-but-still simplified, the blow-by-blow of what happens when a new node boot
   1. iPXE crafts a custom request to the Razor server including basics like MAC address.
   1. iPXE requests instructions over http port 8150 about what initrd and kernel to chain boot into.
   1. iPXE chains to whatever initrd and kernel Razor said to.
-    1.1 (Since this is a new and unknown machine, boot the microkernel.)
+    1. (Since this is a new and unknown machine, boot the microkernel.)
   1. The system boots a CentOS 7-based "microkernel," including extra kernel boot-line parameters that identify where the Razor server is.
   1. Once up, the microkernel runs facter and posts its facts to the Razor server API over http on port 8150.
   1. If the Razor server has no further instructions, the microkernel waits a configurable number of seconds, and then re-posts its facts to the Razor API.
@@ -41,7 +41,7 @@ Less-but-still simplified, the blow-by-blow of what happens when a new node boot
   1. The chain loader takes those instructions an chains into them.
   1. The OS is installed as usual, and rebooted.
   1. Upon reboot, iPXE loads, gets the bootstrap as usual, and when it asks where to chain boot into, it's told to use the local disk.
-    1.1 (Or, if its role has changed, chain into a different installer.)
+    1. (Or, if its role has changed, chain into a different installer.)
 
 
 ## Down the Rabbit Hole
