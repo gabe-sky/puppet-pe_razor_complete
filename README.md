@@ -14,6 +14,10 @@ This module only works if your Master is running Puppet Enterprise.  If you're j
 
 If you're using Open Source Puppet, I heartily recommend looking at the lavaburn/razor module on the Puppet Forge.  It's excellent, and has additional types and providers that go way beyond this module's "set it up and run away" attitude.
 
+If you need to debug the network booting portion of a Razor environment, likely you need to use some other DHCP server software or host, this module includes a file with all the gory details of what happens when a new node boots from the network.  Read:
+
+  * HOW_BOOTING_WORKS.md
+
 
 ## Basic CentOS 6 Example
 
