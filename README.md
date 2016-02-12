@@ -23,9 +23,9 @@ With CentOS 6 and a Puppet Enterprise master, you should be able to just do this
   1. Statically assign eth1 to an IP in the default DHCP server's 10.11.12.0/24 range where it will give out leases.
   1. Apply this class to the node.
 
-````
+```puppet
 include pe_razor_complete
-````
+```
 
 You should now be able to network-boot bare machines on the "provisioning" network and have them boot the microkernel and report in to the Razor server.
 
@@ -34,22 +34,22 @@ You should now be able to network-boot bare machines on the "provisioning" netwo
 
 If for some reason you'd like nodes to receive a different range of DHCP leases, different netmask, and even lease time, you can declare the class with some extra parameters.
 
-````
+```puppet
 class { 'pe_razor_complete':
   dnsmasq_dhcp_start => '192.168.192.128',
   dnsmasq_dhcp_end   => '192.168.192.196',
   dnsmasq_dhcp_mask  => '255.255.255.0',   # the default, actually
   dnsmasq_dhcp_lease => '2d',
 }
-````
+```
 
 
 ## Non-eth1 Provisioning Network Example
 
 If you're brave enough to let the server handle DHCP requests on its primary interface, or if you're on a CentOS 7 system where the nic names are wacky, declare it with a parameter to have DHCP and other provisioning communication done over something other than eth1:
 
-````
+```puppet
 class { 'pe_razor_complete':
   dnsmasq_interface => 'eth0',
 }
-````
+```
