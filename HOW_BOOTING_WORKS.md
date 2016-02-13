@@ -126,6 +126,8 @@ The mechanism where facts are posted to the Razor server's API is actually a rea
 
 If no policy has been bound to this node yet, the mk-update command just keeps running and doing nothing.  Once a policy is bound to the node, mk-update recieves an "update" which tells it what to do next.
 
+QUESTION: What else might an "update" instruct it to do?  (PR, anyone?)
+
 Likely, the instruction is to reboot.  Now iPXE's bootstrap.ipxe script fetches a new dynamically-generated chain loader configuration from the Razor server.  Likely, this looks like a normal kickstart's ramdisk and kernel line, with kernel and ramdisk fetched off the Razor server -- as well as using a repository on the Razor server to fetch installation files.
 
 
