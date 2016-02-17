@@ -10,11 +10,11 @@
 # be set properly for all the dhcp, pxe, and ipv4_nat subclasses.
 
 class pe_razor_complete::dhcp (
-  $dnsmasq_dhcp_start     = $pe_razor_complete::dnsmasq_dhcp_start,
-  $dnsmasq_dhcp_end       = $pe_razor_complete::dnsmasq_dhcp_end,
-  $dnsmasq_dhcp_netmask   = $pe_razor_complete::dnsmasq_dhcp_netmask,
-  $dnsmasq_dhcp_lease     = $pe_razor_complete::dnsmasq_dhcp_lease,
-  $dnsmasq_interface      = $pe_razor_complete::dnsmasq_interface,
+  $dnsmasq_dhcp_start   = $pe_razor_complete::dnsmasq_dhcp_start,
+  $dnsmasq_dhcp_end     = $pe_razor_complete::dnsmasq_dhcp_end,
+  $dnsmasq_dhcp_netmask = $pe_razor_complete::dnsmasq_dhcp_netmask,
+  $dnsmasq_dhcp_lease   = $pe_razor_complete::dnsmasq_dhcp_lease,
+  $dnsmasq_interface    = $pe_razor_complete::dnsmasq_interface,
 ) inherits pe_razor_complete {
 
   # Make sure dnsmasq is installed and running, so it can do dhcp and tftp.
@@ -22,8 +22,8 @@ class pe_razor_complete::dhcp (
     ensure => installed,
   }
   service { 'dnsmasq':
-    ensure => running,
-    enable => true,
+    ensure  => running,
+    enable  => true,
     require => Package['dnsmasq'],
   }
 
@@ -32,9 +32,9 @@ class pe_razor_complete::dhcp (
   # in a limited range.  This is also where we'll tell it to look in dnsmasq.d
   # for additional files, which will set up specific things like pxe booting.
   file { '/etc/dnsmasq.conf':
-    ensure => file,
+    ensure  => file,
     content => template('pe_razor_complete/dnsmasq.conf.erb'),
-    notify => Service['dnsmasq'],
+    notify  => Service['dnsmasq'],
   }
 
 }

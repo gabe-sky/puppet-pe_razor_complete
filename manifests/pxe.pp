@@ -25,9 +25,9 @@ class pe_razor_complete::pxe (
   # specifically Enterprise-supported version from the official Puppet s3
   # bucket.
   staging::file { 'undionly.kpxe':
-   target  => "/var/lib/tftpboot/undionly.kpxe",
-   source  => 'https://s3.amazonaws.com/pe-razor-resources/undionly-20140116.kpxe',
-   require => [ File['/var/lib/tftpboot'], Class['pe_razor'] ],
+    target  => '/var/lib/tftpboot/undionly.kpxe',
+    source  => 'https://s3.amazonaws.com/pe-razor-resources/undionly-20140116.kpxe',
+    require => [ File['/var/lib/tftpboot'], Class['pe_razor'] ],
   }
 
   # The iPXE kernel will fetch a bootstrap.ipxe file, that then aims a chain
@@ -35,10 +35,10 @@ class pe_razor_complete::pxe (
   # machines are simply told to load a microkernel.
   # The bootstrap is static, but Razor likes to be the one to craft it.
   staging::file { 'bootstrap.ipxe':
-    target  => "/var/lib/tftpboot/bootstrap.ipxe",
-    source  => "https://${facts['networking']['interfaces'][$dnsmasq_interface]['ip']}:8151/api/microkernel/bootstrap?nic_max=1&http_port=8150",
+    target      => '/var/lib/tftpboot/bootstrap.ipxe',
+    source      => "https://${facts['networking']['interfaces'][$dnsmasq_interface]['ip']}:8151/api/microkernel/bootstrap?nic_max=1&http_port=8150",
     curl_option => '--insecure',
-    require => [ File['/var/lib/tftpboot'], Class['pe_razor'] ],
+    require     => [ File['/var/lib/tftpboot'], Class['pe_razor'] ],
   }
 
   # Supply just enough dhcp configuration so that all network-booting machines
