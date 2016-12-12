@@ -10,6 +10,7 @@
 
 class pe_razor_complete (
   # What interface, and what IP range should the DHCP server use?
+  $dnsmasq_dhcp_enable  = true,
   $dnsmasq_dhcp_start   = '10.11.12.100',
   $dnsmasq_dhcp_end     = '10.11.12.200',
   $dnsmasq_dhcp_netmask = '255.255.255.0',
