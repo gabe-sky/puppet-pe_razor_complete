@@ -10,6 +10,7 @@
 # be set properly for all the dhcp, pxe, and ipv4_nat subclasses.
 
 class pe_razor_complete::dhcp (
+  $dnsmasq_dhcp_enable  = $pe_razor_complete::dnsmasq_dhcp_enable,
   $dnsmasq_dhcp_start   = $pe_razor_complete::dnsmasq_dhcp_start,
   $dnsmasq_dhcp_end     = $pe_razor_complete::dnsmasq_dhcp_end,
   $dnsmasq_dhcp_netmask = $pe_razor_complete::dnsmasq_dhcp_netmask,
