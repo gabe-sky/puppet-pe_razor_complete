@@ -1,6 +1,6 @@
 {
   "name": "gabe-pe_razor_complete",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "author": "Gabriel M Schuyler",
   "license": "Apache 2.0",
   "summary": "Creates a Puppet Enterprise Razor server complete with dhcp, tftp, ipxe",

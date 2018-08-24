@@ -42,7 +42,7 @@ If for some reason you'd like nodes to receive a different range of DHCP leases,
 class { 'pe_razor_complete':
   dnsmasq_dhcp_start => '192.168.192.128',
   dnsmasq_dhcp_end   => '192.168.192.196',
-  dnsmasq_dhcp_mask  => '255.255.255.0',   # the default, actually
+  dnsmasq_dhcp_netmask  => '255.255.255.0',   # the default, actually
   dnsmasq_dhcp_lease => '2d',
 }
 ```
